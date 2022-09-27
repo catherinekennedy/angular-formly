@@ -1,0 +1,234 @@
+<nz-layout class="app-layout">
+  <nz-sider
+    class="menu-sidebar"
+    nzCollapsible
+    nzWidth="256px"
+    nzBreakpoint="md"
+    [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null"
+  >
+    <div class="sidebar-logo">
+      <a href="https://ng.ant.design/" target="_blank" title="ac">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
+        <h1>Ant Design Of Angular</h1>
+      </a>
+      <br />
+      <a href=""><h1>Ant Design Of dsfar</h1></a>
+    </div>
+    <nb-menu [items]="items" ></nb-menu>
+    <!-- <a href="http://localhost:4200/home" class="login-form-button login-form-margin">kjloi</a> -->
+    <!-- <ul
+      nz-menu
+      nzTheme="dark"
+      nzMode="inline"
+      [nzInlineCollapsed]="isCollapsed"
+    >
+      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome">Welcome</a>
+          </li>
+          
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/login">login</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/home" class="home">home</a>
+          </li>
+        </ul>
+      </li>
+    
+    </ul> -->
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <i
+            class="trigger"
+            nz-icon
+            [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+          ></i>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+
+        <!-- <div nz-row>
+          <div nz-col nzSpan="12" > -->
+        <!-- <div id="demo" class="collapse">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div> -->
+        <span
+          nz-icon
+          nzType="rocket"
+          class="apptouricon"
+          nzTheme="outline"
+          data-toggle="collapse"
+          data-target="#demo"
+        ></span>
+        <!-- <button type="button" class="btn btn-info" >Simple collapsible</button> -->
+        <!-- <nz-collapse>
+          <nz-collapse-panel
+            nzHeader="App Tour"
+            nzActive="true"
+            nzDisabled="false"
+            class="sidenav"
+          > -->
+
+        <div id="demo" class="collapse sidenav">
+          <span
+            nz-icon
+            nzType="close-circle"
+            style="float: right"
+            nzTheme="outline"
+            data-toggle="collapse"
+            data-target="#demo"
+          ></span>
+
+          <div class="tourheading">
+            <p>QUICKSTART TOUR</p>
+            <h6>App Enablement</h6>
+          </div>
+          <nz-progress
+            [nzPercent]="percent.percent"
+            nzStatus="active"
+            [nzStrokeColor]="{ '0%': '#ff8555', '100%': '#ff8555' }"
+          ></nz-progress>
+          <br />
+          <br />
+          <p-carousel [value]="tourbtn.data" [numVisible]="3" [numScroll]="1" >
+            <ng-template let-car pTemplate="item">
+
+              <button type="button" class="button" >{{tourbtn.data[0].btn}}</button>
+            </ng-template>
+        </p-carousel>
+          <!-- <div class="text-center">
+            <button type="button" class="button" *ngFor ="let btn of tourbtn">{{btn}}</button>
+            <button type="button" class="button">Labs</button>
+            <button type="button" class="button">Mines</button>
+            <button type="button" class="button">Projects</button>
+          </div> -->
+          <nz-collapse>
+            <nz-collapse-panel
+              *ngFor="let appName of apptourname; let i = index"
+              nzHeader="{{ appName | titlecase }} "
+              nzActive="false"
+              [nzExtra]="extraTpl"
+            >
+              <!-- <div class="btnguide">
+              <button nz-button (click)="tour(appName)"  nzShape="circle" >Search</button>
+            </div> -->
+              <div nz-row *ngFor="let name of tours[i]">
+                <div nz-col nzSpan="12">
+                  <div nz-row  class="text-left">
+                    <!-- <div nz-col nzSpan="6">
+                      <button
+                        nz-button
+                        nzType="text"
+                        nzTwotoneColor="green"
+                        [class]="name.done ? 'btngreen' : 'btnred'"
+                        (click)="call(name.step, name.title, appName)"
+                      >
+                        {{ name.step }}
+                      </button>
+                    </div> -->
+                    <div nz-col nzSpan="12">
+                      <p style="font-size: 14px">{{ name.title }}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div nz-col nzSpan="2" nzOffset="8">
+                  
+                  <i   (click)="call(name.step, name.title, appName)" [class]="name.done ? 'btngreen fa-solid fa-rocket' : 'btnred fa-solid fa-rocket'" ></i>
+                
+                  <!-- <button nz-button nzType="dashed" nz-tooltip nzTooltipTitle="Guide me" nzTooltipColor="red"  (click)="tour(appName)" class="tooltipbtn"><i style="font-size:12px" class="fa fa-street-view" aria-hidden="true"></i></button>
+              <br>
+              <button nz-button nzType="dashed" nz-tooltip nzTooltipTitle="See tutorial"   class="tooltipbtn"><i style="font-size:12px" class="fa fa-television" aria-hidden="true"></i></button>
+<br>
+<button nz-button nzType="dashed" nz-tooltip nzTooltipTitle="Read Docs" class="tooltipbtn"><i  i style="font-size:12px" class="fa fa-book" aria-hidden="true" ></i></button> -->
+                </div>
+              </div>
+              <!-- <div nz-row nzJustify="space-evenly" style="margin-top: 5px;">
+                  <div nz-col nzSpan="12" >
+                    <button nz-button nzType="dashed" nz-tooltip nzTooltipTitle="See tutorial"  ><i class="fa fa-television" aria-hidden="true"></i></button>
+
+                  </div>
+                  <div nz-col nzSpan="12">
+                    <button nz-button nzType="dashed" nz-tooltip nzTooltipTitle="Read Docs"><i class="fa fa-book" aria-hidden="true"></i></button>
+
+              </div>
+              </div> -->
+
+              <ng-template #extraTpl>
+                <i
+                  (click)="tour(appName)"
+                  nz-tooltip
+                  nzTooltipTitle="Guide me"
+                  class="fa fa-street-view righttooltipicon"
+                  aria-hidden="true"
+                ></i>
+                <i
+                  nz-tooltip
+                  nzTooltipTitle="See tutorial"
+                  class="fa fa-television righttooltipicon"
+                  aria-hidden="true"
+                ></i>
+                <i
+                  nz-tooltip
+                  nzTooltipTitle="Read Docs"
+                  class="fa fa-book righttooltipicon"
+                  aria-hidden="true"
+                ></i>
+
+                <!-- You can use stopPropagation if you don't want the panel to toggle -->
+                <span
+                  class="iconTick"
+                  nz-icon
+                  [nzType]="apptourval[i] ? 'check-circle' : 'close-circle'"
+                  [nzTheme]="'twotone'"
+                  [nzTwotoneColor]="apptourval[i] ? '#12E41D' : '#F70000'"
+                >
+                </span>
+              </ng-template>
+            </nz-collapse-panel>
+          </nz-collapse>
+
+          <!-- <p *ngFor="let appName of apptourname; let i = index">
+              <span>{{ appName }} {{ apptourval[i] }}</span>
+
+              <span
+                class="iconTick"
+                nz-icon
+                [nzType]="apptourval[i] ? 'check-circle' : 'close-circle'"
+                [nzTheme]="'twotone'"
+                [nzTwotoneColor]="apptourval[i] ? 'green' : 'red'"
+              ></span>
+            </p> -->
+          <!-- <p>
+              <span nz-typography [nzType]="appTour?.t2 ? 'success' : 'danger'"
+                >Tour 2</span
+              >
+              <span
+                class="iconTick"
+                nz-icon
+                [nzType]="appTour?.t2 ? 'check-circle' : 'close-circle'"
+                [nzTheme]="'twotone'"
+                [nzTwotoneColor]="appTour?.t2 ? 'green' : 'red'"
+              ></span>
+            </p> -->
+          <!-- </nz-collapse-panel>
+        </nz-collapse> -->
+        </div>
+        <!-- </div>
+        </div> -->
+      </div>
+    </nz-content>
+    <nz-footer> </nz-footer>
+  </nz-layout>
+</nz-layout>

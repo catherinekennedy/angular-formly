@@ -1,0 +1,20 @@
+.jumbotron {
+  /* background-blend-mode: color; */
+  color: #0a0a3a;
+  font-weight: 200;
+  font-size: large;
+  background-image: url("https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80");
+}
+.kaarhead {
+  font-family: "Copperplate";
+  font-weight: 100;
+  color: #0a0a3a;
+}
+.dis {
+  background-color: #c6ebf3;
+  padding: 10px;
+}
+nz-card{
+  height: 100px;
+  overflow-y: scroll;
+}

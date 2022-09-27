@@ -1,0 +1,43 @@
+<!-- <button class="btn btn-primary" (click)="startTour()">startTour</button> -->
+<h5 class="loginhead">Kaar School Login</h5>
+<!--  -->
+<form nz-form class="loginform w-50">
+  <nz-form-item>
+    <nz-input-group class="inputuser">
+      <input
+        type="text"
+        nz-input
+        placeholder="Username"
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+      />
+    </nz-input-group>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-input-group class="inputpassword">
+      <input
+        type="password"
+        nz-input
+        placeholder="Password"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+      />
+    </nz-input-group>
+  </nz-form-item>
+
+  <button
+  
+    nz-button
+    class="login-form-button login-form-margin"
+    [nzType]="'primary'"
+  >
+    Log in
+  </button>
+  
+
+</form>
+<button pButton type="button" label="Primary"></button>
+
+

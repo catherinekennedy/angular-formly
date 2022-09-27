@@ -1,0 +1,12 @@
+<p>ng-select works!</p>
+<ng-select [items]="to.options"
+[bindLabel]="labelProp"
+[bindValue]="valueProp"
+[multiple]="to.multiple"
+[closeOnSelect]="false"
+[placeholder]="to.placeholder"
+[formControl]="formControl">
+<ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+    <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{item.label}}
+</ng-template>
+</ng-select>

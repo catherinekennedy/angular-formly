@@ -1,0 +1,213 @@
+<p>intro works!</p>
+<!-- <h1
+  data-step="1"
+  data-intro="This is a tooltip!"
+  data-position="top"
+  data-tooltipClass="demointroclass"
+>
+  Basic Usage
+</h1> -->
+<!-- <div
+  class="card"
+  style="width: 18rem"
+  data-title="Welcome!"
+  data-intro="Hello World!"
+>
+  <img
+    data-intro="Intro.js can highlight on elements"
+    src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
+    class="card-img-top"
+    alt="..."
+  />
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p
+      class="card-text"
+      data-title="Farewell!"
+      data-intro="And this is the last step!"
+    >
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->
+<button class="btn btn-primary" (click)="startTour()">startTour</button>
+<br /><br />
+<button class="btn btn-primary" (click)="startTour2()">Tour2</button>
+<br /><br />
+<button nz-button nzType="primary" (click)="showHint()">Show Hints</button
+><br /><br />
+
+<nz-affix [nzOffsetTop]="offsetTop">
+  <div nz-row>
+    <div nz-col nzSpan="12" nzOffset="12">
+      <nz-progress [nzPercent]="percent" nzStatus="active"></nz-progress>
+      <br />
+      <br />
+      <p>
+        Tour 1
+        <span
+          class="iconTick"
+          nz-icon
+          [nzType]="arrTour?.t1 ? 'check-circle' : 'close-circle'"
+          [nzTheme]="'twotone'"
+          [nzTwotoneColor]="arrTour?.t1 ? 'green' : 'red'"
+        ></span>
+      </p>
+      <p>
+        Tour 2
+        <span
+          class="iconTick"
+          nz-icon
+          [nzType]="arrTour?.t2 ? 'check-circle' : 'close-circle'"
+          [nzTheme]="'twotone'"
+          [nzTwotoneColor]="arrTour?.t2 ? 'green' : 'red'"
+        ></span>
+      </p>
+    </div>
+  </div>
+</nz-affix>
+
+<button nz-button [nzType]="'primary'" (click)="showModal()">
+  <span>Tour List</span>
+</button>
+<!-- <button class="btn btn-primary" (click)="step2()">Go to image 2</button>
+<br /><br /> -->
+<!-- <button class="btn btn-primary" (click)="showHint()">Show hints</button> -->
+<br /><br />
+<div class="card" style="width: 18rem">
+  <img
+    src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
+    class="card-img-top"
+    alt="..."
+  />
+  <div class="card-body">
+    <h5 class="card-title">Demo introduction</h5>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+    <button class="btn btn-primary explore">explore</button>
+  </div>
+</div>
+<br /><br />
+<div nz-row [nzGutter]="32">
+  <div nz-col [nzSpan]="6">
+    <nz-card
+      class="img1"
+      nzHoverable
+      style="width: 220px"
+      [nzCover]="coverTemplate"
+      [nzExtra]="extraTemplate"
+      nzTitle="Card"
+    >
+      <nz-card-meta
+        nzTitle="Europe Street beat"
+        nzDescription="www.instagram.com"
+      ></nz-card-meta>
+    </nz-card>
+    <ng-template #coverTemplate>
+      <img
+        alt="example"
+        src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+      />
+    </ng-template>
+    <ng-template #extraTemplate>
+      <a href="">More</a>
+    </ng-template>
+  </div>
+  <div nz-col [nzSpan]="6">
+    <nz-card
+      class="img2"
+      nzHoverable
+      style="width: 220px"
+      [nzCover]="coverTemplate"
+      [nzExtra]="extraTemplate"
+      nzTitle="Card"
+    >
+      <nz-card-meta
+        nzTitle="Europe Street beat"
+        nzDescription="www.instagram.com"
+      ></nz-card-meta>
+    </nz-card>
+    <!-- <ng-template #coverTemplate>
+      <img
+        alt="example"
+        src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+      />
+    </ng-template>
+    <ng-template #extraTemplate>
+      <a href="">More</a>
+    </ng-template> -->
+  </div>
+  <div nz-col [nzSpan]="6">
+    <nz-card
+      class="img3"
+      nzHoverable
+      style="width: 220px"
+      [nzCover]="coverTemplate"
+      [nzExtra]="extraTemplate"
+      nzTitle="Card"
+    >
+      <nz-card-meta
+        nzTitle="Europe Street beat"
+        nzDescription="www.instagram.com"
+      ></nz-card-meta>
+    </nz-card>
+    <!-- <ng-template #coverTemplate>
+      <img
+        alt="example"
+        src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+      />
+    </ng-template>
+    <ng-template #extraTemplate>
+      <a href="">More</a>
+    </ng-template> -->
+  </div>
+</div>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Quick Start Tour"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzContent]="modalContent"
+  [nzWidth]="300"
+>
+  <ng-template #modalContent>
+    <nz-progress [nzPercent]="percent" nzStatus="active"></nz-progress>
+    <br />
+    <br />
+    <p>
+      Tour 1
+      <span
+        class="iconTick"
+        nz-icon
+        [nzType]="arrTour?.t1 ? 'check-circle' : 'close-circle'"
+        [nzTheme]="'twotone'"
+        [nzTwotoneColor]="arrTour?.t1 ? 'green' : 'red'"
+      ></span>
+    </p>
+    <p>
+      Tour 2
+      <span
+        class="iconTick"
+        nz-icon
+        [nzType]="arrTour?.t2 ? 'check-circle' : 'close-circle'"
+        [nzTheme]="'twotone'"
+        [nzTwotoneColor]="arrTour?.t2 ? 'green' : 'red'"
+      ></span>
+    </p>
+  </ng-template>
+</nz-modal>
+
+<!-- <ng-template *nzModalContent>
+  <p>Content one</p>
+  <p>Content two</p>
+  <p>Content three</p>
+</ng-template> -->

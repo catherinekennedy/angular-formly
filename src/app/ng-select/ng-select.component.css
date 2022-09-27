@@ -1,0 +1,56 @@
+::ng-deep .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+    white-space: nowrap;
+    border: 1px solid #e13f00;
+    background-color: white;
+    border-radius: 20px;
+}
+
+::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected, .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked {
+    color: #333;
+    background-color: #fff1e6;
+}
+::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected, .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked {
+    color: #333;
+    background-color: #fff1e6;
+}
+
+::ng-deep .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-icon.left {
+    border-right: 0px;
+}
+
+::ng-deep .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-icon.left:hover {
+    background-color: #fff1e6;
+    border-radius: 50%;
+
+}
+
+::ng-deep .p-multiselect .p-multiselect-label {
+    padding: 0.5rem 0.5rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    width: 500px;
+}
+::ng-deep .p-multiselect.p-multiselect-chip .p-multiselect-token {
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    background: white;
+    border: 1px solid #e13f00;
+    color: black;
+    border-radius: 5px;
+}
+
+::ng-deep .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
+    color: #495057;
+    background: #fff1e6;;
+}
+
+::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
+    border-color: #fff1e6;
+    background: #fff1e6;
+
+}
+
+::ng-deep .p-checkbox .p-checkbox-box .p-checkbox-icon {
+    transition-duration: 0.2s;
+    color: #e13f00;
+    font-size: 14px;
+}

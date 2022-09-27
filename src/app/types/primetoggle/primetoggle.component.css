@@ -1,0 +1,6 @@
+::ng-deep .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+    background: #e13f00;
+}
+::ng-deep .p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider {
+    background: #e13f00;
+}

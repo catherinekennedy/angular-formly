@@ -1,0 +1,105 @@
+/* You can add global styles to this file, and also import other style files */
+/* body {
+  margin-left: 1%;
+} */
+/* .customTooltip * {
+  color: #4a4a4a;
+  font-size: 18px;
+} */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+
+.customTooltip .introjs-tooltip-title {
+  color: #e13f00;
+  /* background-color: #DA3D00; */
+  text-align: center;
+  /* border-radius: 35px 10em 10%; */
+}
+.customTooltip .introjs-progressbar{
+background-color: #e13f00 !important;
+
+}
+.customTooltip .introjs-progress{
+ 
+  height: 6px !important;
+  }
+   
+
+
+.customTooltip .introjs-bullets ul li a.active {
+
+  background: #e13f00;
+}
+
+
+.iconTick {
+  float: right;
+  font-size: 20px;
+}
+ .introjs-tooltip {
+  color: #e13f00;
+  /* background-color: #F3EFB7 !important; */
+  text-align: center;
+  border-radius: 0 20px 20px 20px !important;
+ }
+ .customTooltip .introjs-tooltipbuttons a:focus{
+  border: #e13f00 1px solid;
+ }
+.customTooltip .introjs-tooltipbuttons a {
+  /* color: transparent; */
+  /* border: 1px #ff8555 !important;
+  border-radius: 10px; */
+  background-color: white;
+
+  border: 1px solid #e13f00;
+
+  color: black;
+
+  padding: 3px 10px;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  display: inline-block;
+
+  font-size: 12px;
+
+  margin: 4px 2px;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+/* .introjs-button:focus{
+  
+} */
+
+.introjs-helperLayer:after {
+  position: fixed;
+  z-index: 100000;
+  
+}
+/* .introjs-overlay {
+  display: none !important;
+  } */
+
+/* .introjs-overlay,
+.introjs-helperLayer,
+.introjs-tooltipReferenceLayer{
+  
+   
+} */
+
+.introjs-helperLayer {
+  background-color: rgba(255, 255, 255, 0.5);
+  pointer-events:none !important;
+  z-index: 99 !important;
+  
+}
+
+.ant-collapse>.ant-collapse-item>.ant-collapse-header{
+  background-color: white !important;
+ 
+
+}
