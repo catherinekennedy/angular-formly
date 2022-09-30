@@ -1,11 +1,22 @@
 <p>formly works!</p>
-<form [formGroup]="form" (ngSubmit)="submit(form)">
+<!-- <form (ngSubmit)="user(fm)" formGroup ="form"> -->
+  <nz-radio-group [(ngModel)]="us" (ngModelChange)="use(us)">
+    <label nz-radio nzValue="lmt">Limited User</label>
+    <label nz-radio nzValue="std">Standard User</label>
+    <label nz-radio nzValue="sup">Super User</label>
+  </nz-radio-group>
+
+
+<!-- </form> -->
+
+<form [formGroup]="form" (ngSubmit)="submit(form)" >
     <formly-form [model]="model" [fields]="fields"  [form]="form"></formly-form>
+    <br><br>
     
-    <button type="submit" class="btn btn-primary submit-button" [disabled]="!form.valid">Submit</button>
   </form>
 
 <p>{{model | json}}</p>
+
 <!-- <form [formGroup]="form"  *ngIf="fields">
     <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
     <button type="submit" class="btn btn-primary submit-button" [disabled]="!form.valid">Submit</button>

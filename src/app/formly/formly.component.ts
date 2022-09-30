@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { CallService } from '../service/call.service';
 import { tap } from 'rxjs/operators';
 // import { SelectItem, PrimeNGConfig } from "primeng/api";
+import { NzRadioModule } from 'ng-zorro-antd/radio';
 
 
 @Component({
@@ -15,27 +16,57 @@ import { tap } from 'rxjs/operators';
 })
 export class FormlyComponent implements OnInit {
   type: string;
+  us="A";
+
   // form: FormGroup;
   model: any={};
   form = new FormGroup({});
   options: FormlyFormOptions={};
   fields: FormlyFieldConfig[];
+  user="stdj";
 
-  cities: any;
-
-    selectedCities: any;
 
   constructor( private call: CallService, private formlyJsonschema: FormlyJsonschema,private http: HttpClient) { 
-      this.cities = [
-      {name: 'New York', code: 'NY', inactive: false},
-      {name: 'Rome', code: 'RM', inactive: true},
-      {name: 'London', code: 'LDN', inactive: false},
-      {name: 'Istanbul', code: 'IST', inactive: true},
-      {name: 'Paris', code: 'PRS', inactive: false}
-  ];
   }
-
+  use(x){
+    var updateindex = this.fields.findIndex(obj => obj.type =="update");
+    var resetindex = this.fields.findIndex(obj => obj.type =="reset-button");
+    if(x == "lmt"){
+      console.log("ji");
+      this.form.disable();
+      this.fields[updateindex].hide = true;
+      this.fields[resetindex].hide = true;
+      
+      }else if (x == "std"){
+        console.log(this.fields);
+        console.log(updateindex);
+        this.fields[updateindex].hide = true;
+        this.fields[resetindex].hide = false;
+        this.form.enable();
+      }else if(x == "sup"){
+        this.form.enable();
+        this.fields[updateindex].hide = false;
+        this.fields[resetindex].hide = false;
+      }
+    console.log(x);
+  }
   ngOnInit() {
+  
+    console.log(this.form);
+    setTimeout(() =>{
+      console.log(this.model.story)
+      if(this.user == "limited"){
+      console.log("ji");
+      this.form.disable();
+      }else if (this.user == "std"){
+        var index = this.fields.findIndex(obj => obj.type =="update");
+        console.log(this.fields);
+        console.log(index);
+        this.fields[index].hide = true;
+      }
+     
+    }, 1000);
+    
     // this.primengConfig.ripple = true;
 
 
@@ -56,6 +87,8 @@ export class FormlyComponent implements OnInit {
       this.fields=f;
       console.log([this.fields]);
     })
+   
+    
 
 
     // this.call.getPosts()
@@ -67,9 +100,22 @@ export class FormlyComponent implements OnInit {
     //       console.log(response);
     //     });
   }
+ 
+  // ngAfterViewInit(){
+  //   if(this.user = "limited"){
+  //     console.log("li");
+  //     console.log(this.model);
+  //     console.log(this.options);
+  //     this.form.disable();
+      
+  //     // this.form.disabled = true;
 
-  submit(form){
-    console.log(form);
-  }
+  //   }
+
+  // }
+ 
+
+
 
 }
+

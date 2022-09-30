@@ -1,0 +1,4 @@
+::ng-deep .p-datepicker table td > span.p-highlight {
+    color: #495057;
+    background: #fff1e6;
+}
