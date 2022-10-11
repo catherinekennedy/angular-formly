@@ -1,5 +1,6 @@
-<p>ng-select works!</p>
+<!-- <p>ng-select works!</p>
 <ng-select [items]="to.options"
+[disabled]="'disable' | able: 'form'"
 [bindLabel]="labelProp"
 [bindValue]="valueProp"
 [multiple]="to.multiple"
@@ -9,4 +10,10 @@
 <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
     <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{item.label}}
 </ng-template>
-</ng-select>
+</ng-select> -->
+
+
+
+<p-multiSelect [options]="to.options" [formControl]="formControl" display="chip" [disabled]="'disable' | able: 'form'"  optionLabel="label">
+
+</p-multiSelect>

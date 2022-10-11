@@ -66,7 +66,15 @@ import { UpdateButtonComponent } from './types/update-button/update-button.compo
 import { SliderComponent } from './types/slider/slider.component';
 import {RadioButtonModule} from 'primeng/radiobutton';
 
+//CASL
 
+
+// import { AbilityModule } from '@casl/angular';
+// import { Ability, PureAbility } from '@casl/ability';
+
+//shared module
+
+import { SharedModule } from './shared/shared.module'
 
 // import { FormlyModule }from '@ngx-formly/core';
 // import { FormlyBootstrapModule }from '@ngx-formly/bootstrap';
@@ -76,36 +84,36 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 
 
 
-export function minlengthValidationMessage(err, field) {
-  return `Should have atleast ${field.templateOptions.minLength} characters`;
-}
+// export function minlengthValidationMessage(err, field) {
+//   return `Should have atleast ${field.templateOptions.minLength} characters`;
+// }
 
-export function maxlengthValidationMessage(err, field) {
-  return `This value should be less than ${field.templateOptions.maxLength} characters`;
-}
+// export function maxlengthValidationMessage(err, field) {
+//   return `This value should be less than ${field.templateOptions.maxLength} characters`;
+// }
 
-export function minValidationMessage(err, field) {
-  return `This value should be more than ${field.templateOptions.min}`;
-}
+// export function minValidationMessage(err, field) {
+//   return `This value should be more than ${field.templateOptions.min}`;
+// }
 
-export function maxValidationMessage(err, field) {
-  return `This value should be less than ${field.templateOptions.max}`;
-}
+// export function maxValidationMessage(err, field) {
+//   return `This value should be less than ${field.templateOptions.max}`;
+// }
 
-export function IpValidator(formControl:FormControl): ValidationErrors {
-  console.log(formControl);
-  if(formControl.value == "baby_ruth"){
-    console.log("baby");
-    return { 'candy': true };
+// export function IpValidator(formControl:FormControl): ValidationErrors {
+//   console.log(formControl);
+//   if(formControl.value == "baby_ruth"){
+//     console.log("baby");
+//     return { 'candy': true };
     
-  }
-}
+//   }
+// }
 
-export function IpValidatorMessage(err, field) {
+// export function IpValidatorMessage(err, field) {
  
-  console.log(field);
-  return `${field.formControl.value} is not accepted`;
-}
+//   console.log(field);
+//   return `${field.formControl.value} is not accepted`;
+// }
 
 
 registerLocaleData(en);
@@ -130,33 +138,12 @@ registerLocaleData(en);
     SliderComponent,
   ],
   imports: [
+    SharedModule,
     InputSwitchModule,RatingModule,ChipsModule,CalendarModule,RadioButtonModule,
     ReactiveFormsModule,
     NgSelectModule,
     FormlyBootstrapModule,
-    FormlyModule.forRoot({
-      validators: [{ name: "ip-default", validation: IpValidator }],
-      validationMessages: [
-        { name: 'required', message: 'This field is required' },
-        { name: 'minlength', message: minlengthValidationMessage },
-        { name: 'maxlength', message: maxlengthValidationMessage },
-        { name: 'min', message: minValidationMessage },
-        { name: 'max', message: maxValidationMessage },
-        { name: "candy", message: IpValidatorMessage }
-      ],
-      types: [
-        { name: 'ng-select', component: NgSelectComponent},
-        { name: 'ng-toggle', component: PrimetoggleComponent},
-        { name: 'ng-rating', component: RatingComponent},
-        { name: 'ng-chips', component: ChipsComponent},
-        { name: 'ng-calendar', component: CalendarComponent},
-        { name: 'submit-button', component: SubmitButtonComponent},
-        { name: 'reset-button', component: ResetButtonComponent},
-        { name: 'update', component: UpdateButtonComponent},
-        { name: 'ant-slider', component: SliderComponent},
-      ]
-      
-    }),
+   
     ButtonModule,
     CarouselModule,
     CascadeSelectModule,MultiSelectModule,
@@ -176,10 +163,14 @@ registerLocaleData(en);
     
     NbMenuModule.forRoot(),
     DynamicFormControllerModule,
+    // AbilityModule,
+  
   ],
   providers: [
     ShepherdService,CallService,
     { provide: NZ_I18N, useValue: en_US },
+    // { provide: Ability, useValue: new Ability() },
+    // { provide: PureAbility, useExisting: Ability },
     NbLayoutModule,
     NbSidebarModule, // NbSidebarModule.forRoot(), //if this is your app.module
     NbButtonModule,

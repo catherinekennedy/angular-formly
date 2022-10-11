@@ -1,21 +1,70 @@
 <p>formly works!</p>
 <!-- <form (ngSubmit)="user(fm)" formGroup ="form"> -->
-  <nz-radio-group [(ngModel)]="us" (ngModelChange)="use(us)">
+  <!-- <nz-radio-group [(ngModel)]="us" (ngModelChange)="use(us)">
     <label nz-radio nzValue="lmt">Limited User</label>
     <label nz-radio nzValue="std">Standard User</label>
     <label nz-radio nzValue="sup">Super User</label>
-  </nz-radio-group>
+  </nz-radio-group> -->
 
 
 <!-- </form> -->
 
 <form [formGroup]="form" (ngSubmit)="submit(form)" >
-    <formly-form [model]="model" [fields]="fields"  [form]="form"></formly-form>
+
+  <fieldset [disabled]="'disable' | able: 'form'" >
+    <input type="text" [value]="user" readonly >
+    <formly-form [model]="model" [fields]="fields"  [form]="form">
+      
+      
+    </formly-form>
+  </fieldset>
     <br><br>
     
   </form>
-
+  <p>{{'create' | able: 'Post'}}</p>
+<p>{{user}}</p>
 <p>{{model | json}}</p>
+
+<!-- <div class="container">
+  <div>
+    <select
+      class="select-option"
+      #mySelect
+      (change)="onOptionsSelected(mySelect.value)"
+    >
+      <option>Select a role</option>
+      <option
+        class="option"
+        *ngFor="let option of permissionList"
+        [value]="option.role"
+      >
+        {{option.text}}
+      </option>
+    </select>
+  </div>
+  <div class="roles">
+    <div class="read" *ngIf="'read' | able: 'Post'">
+      <a (click)="action('Read')">Read Post</a>
+    </div>
+
+    <div class="create" *ngIf="'create' | able: 'Post'">
+      <a (click)="action('Add')">Add Post</a>
+    </div>
+
+    <div class="update" *ngIf="'update' | able: 'Post'">
+      <a (click)="action('Update')">Update Post</a>
+    </div>
+
+    <div class="delete" *ngIf="'reset' | able: 'Post'">
+      <a (click)="action('Delete')">Delete Post</a>
+    </div>
+
+    <div class="manage" *ngIf="'manage' | able: 'all'">
+      <a (click)="action('Read')">Manage</a>
+    </div>
+  </div>
+</div> -->
+
 
 <!-- <form [formGroup]="form"  *ngIf="fields">
     <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>

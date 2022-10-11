@@ -1,2 +1,2 @@
 <p>{{to.label}}</p>
-<nz-slider [nzMarks]="to.steps" [formControl]="formControl" [ngModel]="50" nzDots="true"></nz-slider>
+<nz-slider [nzMarks]="to.steps" [nzDisabled]="'disable' | able: 'form'" [formControl]="formControl" [ngModel]="50" nzDots="true"></nz-slider>

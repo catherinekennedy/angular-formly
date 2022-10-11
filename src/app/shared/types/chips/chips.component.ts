@@ -2,15 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 
 @Component({
-  selector: 'app-ng-select',
-  templateUrl:"./ng-select.component.html",
- 
-  styleUrls: ['./ng-select.component.css']
+  selector: 'app-chips',
+  templateUrl: './chips.component.html',
+  styleUrls: ['./chips.component.css']
 })
-export class NgSelectComponent extends FieldType {
+export class ChipsComponent extends FieldType {
 
   get labelProp(): string {
-    console.log(this.to);
+    // console.log(this.to);
     return this.to.labelProp || 'label';
   }
   get valueProp(): string {
@@ -20,3 +19,4 @@ export class NgSelectComponent extends FieldType {
     return this.to.groupProp || 'group';
   }
 }
+

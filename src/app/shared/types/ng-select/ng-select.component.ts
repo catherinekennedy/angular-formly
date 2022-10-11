@@ -3,10 +3,10 @@ import { FieldType } from '@ngx-formly/core';
 
 @Component({
   selector: 'app-ng-select',
-  templateUrl:"./ng-select.component.html",
- 
+  templateUrl: './ng-select.component.html',
   styleUrls: ['./ng-select.component.css']
 })
+
 export class NgSelectComponent extends FieldType {
 
   get labelProp(): string {

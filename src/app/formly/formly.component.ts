@@ -7,6 +7,9 @@ import { CallService } from '../service/call.service';
 import { tap } from 'rxjs/operators';
 // import { SelectItem, PrimeNGConfig } from "primeng/api";
 import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { Ability, AbilityBuilder } from "@casl/ability";
+
+
 
 
 @Component({
@@ -23,7 +26,12 @@ export class FormlyComponent implements OnInit {
   form = new FormGroup({});
   options: FormlyFormOptions={};
   fields: FormlyFieldConfig[];
-  user="stdj";
+  user="super";
+  permissionList = [
+    { text: "super", role: "super" },
+    { text: "standard", role: "standard" },
+    { text: "limited", role: "limited" }
+  ];
 
 
   constructor( private call: CallService, private formlyJsonschema: FormlyJsonschema,private http: HttpClient) { 
@@ -54,16 +62,28 @@ export class FormlyComponent implements OnInit {
   
     console.log(this.form);
     setTimeout(() =>{
-      console.log(this.model.story)
-      if(this.user == "limited"){
-      console.log("ji");
-      this.form.disable();
-      }else if (this.user == "std"){
-        var index = this.fields.findIndex(obj => obj.type =="update");
-        console.log(this.fields);
-        console.log(index);
-        this.fields[index].hide = true;
-      }
+      // console.log(this.options);
+      // console.log(this.fields);
+      // console.log(this.form);
+      // this.form.disabled;
+      // console.log(this.model.story)
+      const user = this.user;
+    this.call.setUserPermissionsForInput(user);
+    // this.getUserPermissions(user);
+      // var updateindex = this.fields.findIndex(obj => obj.type =="update");
+      // var resetindex = this.fields.findIndex(obj => obj.type =="reset-button");
+      // if(this.user == "lmt"){
+      //   this.form.disable();
+      //   this.fields[updateindex].hide = true;
+      //   this.fields[resetindex].hide = true;
+        
+      //   }else if (this.user == "std"){
+      //     console.log(this.fields);
+      //     console.log(updateindex);
+      //     this.fields[updateindex].hide = true;
+      //     this.fields[resetindex].hide = true;
+
+      //   }
      
     }, 1000);
     
@@ -114,7 +134,23 @@ export class FormlyComponent implements OnInit {
 
   // }
  
+  getUserPermissions(user) {
+    this.call.setUserPermissions(user);
+  }
 
+
+
+  onOptionsSelected(roleSelected) {
+    alert(roleSelected);
+
+    const user = this.getUser(roleSelected);
+    console.log(user);
+    this.getUserPermissions(user);
+  }
+
+  getUser(role: string) {
+    return this.permissionList.find((permission) => permission.role === role);
+  }
 
 
 }

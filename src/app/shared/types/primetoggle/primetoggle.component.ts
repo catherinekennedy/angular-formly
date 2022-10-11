@@ -2,15 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 
 @Component({
-  selector: 'app-ng-select',
-  templateUrl:"./ng-select.component.html",
- 
-  styleUrls: ['./ng-select.component.css']
+  selector: 'app-primetoggle',
+  templateUrl: './primetoggle.component.html',
+  styleUrls: ['./primetoggle.component.css']
 })
-export class NgSelectComponent extends FieldType {
+export class PrimetoggleComponent extends FieldType {
 
   get labelProp(): string {
-    console.log(this.to);
+    // console.log(this.to);
     return this.to.labelProp || 'label';
   }
   get valueProp(): string {
